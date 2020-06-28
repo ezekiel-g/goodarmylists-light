@@ -1,0 +1,184 @@
+[
+    {
+        "id":8,
+        "name":"Abyssal Dwarfs",
+        "alignment":"Evil",
+        "adjective":"Abyssal Dwarf",
+        "game_id":1
+    },
+    {
+        "id":1,
+        "name":"Basileans",
+        "alignment":"Good",
+        "adjective":"Basilean",
+        "game_id":1
+    },
+    {
+        "id":2,
+        "name":"Dwarfs",
+        "alignment":"Good",
+        "adjective":"Dwarf",
+        "game_id":1
+    },
+    {
+        "id":3,
+        "name":"Elves",
+        "alignment":"Good",
+        "adjective":"Elf",
+        "game_id":1
+    },
+    {
+        "id":9,
+        "name":"Empire of Dust",
+        "alignment":"Evil",
+        "adjective":"Empire of Dust",
+        "game_id":1
+    },
+    {
+        "id":5,
+        "name":"Forces of Nature",
+        "alignment":"Neutral",
+        "adjective":"Forces of Nature",
+        "game_id":1
+    },
+    {
+        "id":10,
+        "name":"Forces of the Abyss",
+        "alignment":"Evil",
+        "adjective":"Forces of the Abyss",
+        "game_id":1
+    },
+    {
+        "id":15,
+        "name":"Free Dwarfs",
+        "alignment":"Good",
+        "adjective":"Free Dwarf",
+        "game_id":1
+    },
+    {
+        "id":11,
+        "name":"Goblins",
+        "alignment":"Evil",
+        "adjective":"Goblin",
+        "game_id":1
+    },
+    {
+        "id":18,
+        "name":"The Herd",
+        "alignment":"Neutral",
+        "adjective":"Herd",
+        "game_id":1
+    },
+    {
+        "id":19,
+        "name":"Kingdoms of Men",
+        "alignment":"Neutral",
+        "adjective":"Kingdoms of Men",
+        "game_id":1
+    },
+    {
+        "id":20,
+        "name":"League of Rhordia",
+        "alignment":"Neutral",
+        "adjective":"League of Rhordia",
+        "game_id":1
+    },
+    {
+        "id":12,
+        "name":"Nightstalkers",
+        "alignment":"Evil",
+        "adjective":"Nightstalker",
+        "game_id":1
+    },
+    {
+        "id":4,
+        "name":"Northern Alliance",
+        "alignment":"Good",
+        "adjective":"Northern Alliance",
+        "game_id":1
+    },
+    {
+        "id":6,
+        "name":"Ogres",
+        "alignment":"Neutral",
+        "adjective":"Ogre",
+        "game_id":1
+    },
+    {
+        "id":13,
+        "name":"Orcs",
+        "alignment":"Evil",
+        "adjective":"Orc",
+        "game_id":1
+    },
+    {
+        "id":16,
+        "name":"Order of the Brothermark",
+        "alignment":"Good",
+        "adjective":"Order of the Brothermark",
+        "game_id":1
+    },
+    {
+        "id":21,
+        "name":"Order of the Green Lady",
+        "alignment":"Neutral",
+        "adjective":"Order of the Green Lady",
+        "game_id":1
+    },
+    {
+        "id":23,
+        "name":"Ratkin",
+        "alignment":"Evil",
+        "adjective":"Ratkin",
+        "game_id":1
+    },
+    {
+        "id":24,
+        "name":"Ratkin Slaves",
+        "alignment":"Evil",
+        "adjective":"Ratkin Slave",
+        "game_id":1
+    },
+    {
+        "id":17,
+        "name":"Salamanders",
+        "alignment":"Good",
+        "adjective":"Salamander",
+        "game_id":1
+    },
+    {
+        "id":22,
+        "name":"Sylvan Kin",
+        "alignment":"Neutral",
+        "adjective":"Sylvan Kin",
+        "game_id":1
+    },
+    {
+        "id":7,
+        "name":"Trident Realm of Neritica",
+        "alignment":"Neutral",
+        "adjective":"Trident Realm of Neritica",
+        "game_id":1
+    },
+    {
+        "id":25,
+        "name":"Twilight Kin",
+        "alignment":"Evil",
+        "adjective":"Twilight Kin",
+        "game_id":1
+    },
+    {
+        "id":14,
+        "name":"Undead",
+        "alignment":"Evil",
+        "adjective":"Undead",
+        "game_id":1
+    },
+    {
+        "id":26,
+        "name":"Varangur",
+        "alignment":"Evil",
+        "adjective":"Varangur",
+        "game_id":1
+    }
+]

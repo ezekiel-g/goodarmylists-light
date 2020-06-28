@@ -1,0 +1,386 @@
+[
+    {
+        "id":1,
+        "name":"Aegis of the Elohi",
+        "display_name":"Aegis of the Elohi",
+        "points":15,
+        "is_heroic":false,
+        "game_id":1
+    },
+    {
+        "id":2,
+        "name":"Blade of Slashing",
+        "display_name":"Blade of Slashing",
+        "points":5,
+        "is_heroic":false,
+        "game_id":1
+    },
+    {
+        "id":3,
+        "name":"Blade of the Beast Slayer",
+        "display_name":"Blade of the Beast Slayer",
+        "points":20,
+        "is_heroic":true,
+        "game_id":1
+    },
+    {
+        "id":4,
+        "name":"Blessing of the Gods",
+        "display_name":"Blessing of the Gods",
+        "points":20,
+        "is_heroic":false,
+        "game_id":1
+    },
+    {
+        "id":5,
+        "name":"Blessing of the Gods (Horde)",
+        "display_name":"Blessing of the Gods",
+        "points":30,
+        "is_heroic":false,
+        "game_id":1
+    },
+    {
+        "id":6,
+        "name":"Blood of the Old King",
+        "display_name":"Blood of the Old King",
+        "points":15,
+        "is_heroic":false,
+        "game_id":1
+    },
+    {
+        "id":7,
+        "name":"Boomstick",
+        "display_name":"Boomstick",
+        "points":30,
+        "is_heroic":true,
+        "game_id":1
+    },
+    {
+        "id":8,
+        "name":"Boots of Levitation",
+        "display_name":"Boots of Levitation",
+        "points":30,
+        "is_heroic":true,
+        "game_id":1
+    },
+    {
+        "id":9,
+        "name":"Boots of the Seven Leagues",
+        "display_name":"Boots of the Seven Leagues",
+        "points":30,
+        "is_heroic":true,
+        "game_id":1
+    },
+    {
+        "id":10,
+        "name":"Brew of Haste",
+        "display_name":"Brew of Haste",
+        "points":20,
+        "is_heroic":false,
+        "game_id":1
+    },
+    {
+        "id":11,
+        "name":"Brew of Sharpness",
+        "display_name":"Brew of Sharpness",
+        "points":35,
+        "is_heroic":false,
+        "game_id":1
+    },
+    {
+        "id":12,
+        "name":"Brew of Sharpness (Horde)",
+        "display_name":"Brew of Sharpness",
+        "points":45,
+        "is_heroic":false,
+        "game_id":1
+    },
+    {
+        "id":13,
+        "name":"Brew of Strength",
+        "display_name":"Brew of Strength",
+        "points":30,
+        "is_heroic":false,
+        "game_id":1
+    },
+    {
+        "id":14,
+        "name":"Brew of Strength (Horde)",
+        "display_name":"Brew of Strength",
+        "points":40,
+        "is_heroic":false,
+        "game_id":1
+    },
+    {
+        "id":15,
+        "name":"Chalice of Wrath",
+        "display_name":"Chalice of Wrath",
+        "points":15,
+        "is_heroic":false,
+        "game_id":1
+    },
+    {
+        "id":16,
+        "name":"Chant of Hate",
+        "display_name":"Chant of Hate",
+        "points":20,
+        "is_heroic":false,
+        "game_id":1
+    },
+    {
+        "id":17,
+        "name":"Chant of Hate (Horde)",
+        "display_name":"Chant of Hate",
+        "points":30,
+        "is_heroic":false,
+        "game_id":1
+    },
+    {
+        "id":18,
+        "name":"Conjurer's Staff",
+        "display_name":"Conjurer's Staff",
+        "points":10,
+        "is_heroic":true,
+        "game_id":1
+    },
+    {
+        "id":19,
+        "name":"Crystal Pendant of Retribution",
+        "display_name":"Crystal Pendant of Retribution",
+        "points":50,
+        "is_heroic":false,
+        "game_id":1
+    },
+    {
+        "id":20,
+        "name":"Darklord's Onyx Ring",
+        "display_name":"Darklord's Onyx Ring",
+        "points":10,
+        "is_heroic":true,
+        "game_id":1
+    },
+    {
+        "id":21,
+        "name":"Diadem of Dragonkind",
+        "display_name":"Diadem of Dragonkind",
+        "points":30,
+        "is_heroic":false,
+        "game_id":1
+    },
+    {
+        "id":22,
+        "name":"Dragonshard Shield",
+        "display_name":"Dragonshard Shield",
+        "points":20,
+        "is_heroic":false,
+        "game_id":1
+    },
+    {
+        "id":23,
+        "name":"Dwarven Ale",
+        "display_name":"Dwarven Ale",
+        "points":15,
+        "is_heroic":false,
+        "game_id":1
+    },
+    {
+        "id":24,
+        "name":"Fire-Oil",
+        "display_name":"Fire-Oil",
+        "points":5,
+        "is_heroic":false,
+        "game_id":1
+    },
+    {
+        "id":25,
+        "name":"Hammer of Measured Force",
+        "display_name":"Hammer of Measured Force",
+        "points":20,
+        "is_heroic":false,
+        "game_id":1
+    },
+    {
+        "id":26,
+        "name":"Hann's Sanguinary Scripture",
+        "display_name":"Hann's Sanguinary Scripture",
+        "points":10,
+        "is_heroic":false,
+        "game_id":1
+    },
+    {
+        "id":27,
+        "name":"Healing Brew",
+        "display_name":"Healing Brew",
+        "points":5,
+        "is_heroic":false,
+        "game_id":1
+    },
+    {
+        "id":28,
+        "name":"Helm of Confidence",
+        "display_name":"Helm of Confidence",
+        "points":15,
+        "is_heroic":false,
+        "game_id":1
+    },
+    {
+        "id":29,
+        "name":"Inspiring Talisman",
+        "display_name":"Inspiring Talisman",
+        "points":20,
+        "is_heroic":true,
+        "game_id":1
+    },
+    {
+        "id":30,
+        "name":"Liliana's Tear",
+        "display_name":"Liliana's Tear",
+        "points":5,
+        "is_heroic":false,
+        "game_id":1
+    },
+    {
+        "id":31,
+        "name":"Lute of Insatiable Darkness",
+        "display_name":"Lute of Insatiable Darkness",
+        "points":25,
+        "is_heroic":true,
+        "game_id":1
+    },
+    {
+        "id":32,
+        "name":"Maccwar's Potion of the Caterpillar",
+        "display_name":"Maccwar's Potion of the Caterpillar",
+        "points":20,
+        "is_heroic":false,
+        "game_id":1
+    },
+    {
+        "id":33,
+        "name":"Mace of Crushing",
+        "display_name":"Mace of Crushing",
+        "points":5,
+        "is_heroic":false,
+        "game_id":1
+    },
+    {
+        "id":34,
+        "name":"Mead of Madness",
+        "display_name":"Mead of Madness",
+        "points":10,
+        "is_heroic":false,
+        "game_id":1
+    },
+    {
+        "id":35,
+        "name":"Mournful Blade",
+        "display_name":"Mournful Blade",
+        "points":15,
+        "is_heroic":true,
+        "game_id":1
+    },
+    {
+        "id":36,
+        "name":"Piercing Arrow",
+        "display_name":"Piercing Arrow",
+        "points":10,
+        "is_heroic":false,
+        "game_id":1
+    },
+    {
+        "id":37,
+        "name":"Pipes of Terror",
+        "display_name":"Pipes of Terror",
+        "points":10,
+        "is_heroic":false,
+        "game_id":1
+    },
+    {
+        "id":38,
+        "name":"Sacred Horn",
+        "display_name":"Sacred Horn",
+        "points":15,
+        "is_heroic":false,
+        "game_id":1
+    },
+    {
+        "id":39,
+        "name":"Scrying Gem",
+        "display_name":"Scrying Gem",
+        "points":25,
+        "is_heroic":false,
+        "game_id":1
+    },
+    {
+        "id":40,
+        "name":"Shroud of the Saint",
+        "display_name":"Shroud of the Saint",
+        "points":30,
+        "is_heroic":true,
+        "game_id":1
+    },
+    {
+        "id":41,
+        "name":"Sir Jesse's Boots of Striding",
+        "display_name":"Sir Jesse's Boots of Striding",
+        "points":15,
+        "is_heroic":false,
+        "game_id":1
+    },
+    {
+        "id":42,
+        "name":"Staying Stone",
+        "display_name":"Staying Stone",
+        "points":5,
+        "is_heroic":false,
+        "game_id":1
+    },
+    {
+        "id":43,
+        "name":"Tome of Darkness",
+        "display_name":"Tome of Darkness",
+        "points":20,
+        "is_heroic":true,
+        "game_id":1
+    },
+    {
+        "id":44,
+        "name":"Trickster's Wand",
+        "display_name":"Trickster's Wand",
+        "points":15,
+        "is_heroic":true,
+        "game_id":1
+    },
+    {
+        "id":45,
+        "name":"War-Bow of Kaba",
+        "display_name":"War-Bow of Kaba",
+        "points":5,
+        "is_heroic":false,
+        "game_id":1
+    },
+    {
+        "id":46,
+        "name":"Wine of Elvenkind",
+        "display_name":"Wine of Elvenkind",
+        "points":40,
+        "is_heroic":false,
+        "game_id":1
+    },
+    {
+        "id":47,
+        "name":"Wings of Honeymaze",
+        "display_name":"Wings of Honeymaze",
+        "points":40,
+        "is_heroic":true,
+        "game_id":1
+    },
+    {
+        "id":48,
+        "name":"Zephyr Crown",
+        "display_name":"Zephyr Crown",
+        "points":25,
+        "is_heroic":true,
+        "game_id":1
+    }
+]
