@@ -1,7 +1,7 @@
 import kowArmyData from '../../../assets/data/kowArmyData.json'
 import kowUnitData from '../../../assets/data/kowUnitData.json'
 import kowUnitOptionData from '../../../assets/data/kowUnitOptionData.json'
-import kowArtefactData from '../../../assets/data/kowArtefactData.json'
+import kowArtifactData from '../../../assets/data/kowArtifactData.json'
 import style from '../../../assets/stylesheets/kow.module.css'
 import React, { Component } from 'react'
 import KowInnerContainer from './KowInnerContainer'
@@ -13,7 +13,7 @@ class KowOuterContainer extends Component {
 			armies: [],
 			units: [],
 			unitOptions: [],
-			artefacts: []
+			artifacts: []
 		}
 	}
 
@@ -71,7 +71,7 @@ class KowOuterContainer extends Component {
 					armies={kowArmyData}
 					units={kowUnitData}
 					unitOptions={kowUnitOptionData}
-					artefacts={kowArtefactData}
+					artifacts={kowArtifactData}
 					dropdownStyle={dropdownStyle}
 				/>
 			</div>
