@@ -2,7 +2,7 @@ import kowArmyData from '../../../assets/data/kowArmyData.json'
 import kowUnitData from '../../../assets/data/kowUnitData.json'
 import kowUnitOptionData from '../../../assets/data/kowUnitOptionData.json'
 import kowArtifactData from '../../../assets/data/kowArtifactData.json'
-import style from '../../../assets/stylesheets/kow.module.css'
+import style from '../../../assets/stylesheets/index.module.css'
 import React, { Component } from 'react'
 import KowInnerContainer from './KowInnerContainer'
 
