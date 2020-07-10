@@ -13,7 +13,7 @@ const ArtifactSelectionTile = props => {
 	) {
 		for (i = 0; i < artifacts.length; i++) {
 			if (
-				artifacts[i].is_heroic === false &&
+				(artifacts[i].is_heroic === false || artifacts[i].is_heroic === 'f') &&
 				artifacts[i].name !== 'Blessing of the Gods' &&
 				artifacts[i].name !== 'Chant of Hate' &&
 				artifacts[i].name !== 'Brew of Strength' &&
@@ -32,7 +32,7 @@ const ArtifactSelectionTile = props => {
 	) {
 		for (i = 0; i < artifacts.length; i++) {
 			if (
-				artifacts[i].is_heroic === false &&
+				(artifacts[i].is_heroic === false || artifacts[i].is_heroic === 'f') &&
 				artifacts[i].name !== 'Blessing of the Gods (Horde)' &&
 				artifacts[i].name !== 'Chant of Hate (Horde)' &&
 				artifacts[i].name !== 'Brew of Strength (Horde)' &&
@@ -114,7 +114,7 @@ const ArtifactSelectionTile = props => {
 
 	return (
 		<div>
-			<h4 className={style['artifact-title']}>
+			<h4 className={style['artifact-title-kow']}>
 				What Magical Artifact will<br />
 				{props.unitObject.unit.display_name} have?
 			</h4><br />
