@@ -16,6 +16,13 @@ const GamesContainer = props => {
 						</span>
 					</div>
 				</div>
+				<div className={style['main-page-games']}>
+					<div className={style['main-page-game']}>
+						<span className={style['main-page-game-label']}>
+							<Link to='/wmr'>Warmaster*</Link>
+						</span>
+					</div>
+				</div>
 			</div>
 			<div className={style['email-div']}>
 				<span>Email:{' '}</span>admin@goodarmylists.com

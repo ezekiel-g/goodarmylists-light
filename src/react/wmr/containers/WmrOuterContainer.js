@@ -1,3 +1,8 @@
+import wmrArmyData from '../../../assets/data/wmr/wmrArmyData.json'
+import wmrUnitData from '../../../assets/data/wmr/wmrUnitData.json'
+import wmrSpecialRuleData from '../../../assets/data/wmr/wmrSpecialRuleData.json'
+import wmrAuxiliaryData from '../../../assets/data/wmr/wmrAuxiliaryData.json'
+import wmrMagicItemData from '../../../assets/data/wmr/wmrMagicItemData.json'
 import style from '../../../assets/stylesheets/index.module.css'
 import React, { Component } from 'react'
 import WmrInnerContainer from './WmrInnerContainer'
@@ -8,75 +13,9 @@ class WmrOuterContainer extends Component {
 		this.state = {
 			armies: [],
 			units: [],
-			magicItems: [],
-			spells: []
-		}
-	}
-
-	componentDidMount() {
-		fetch('/api/v1/wmr_armies')
-		.then(response => {
-			if (response.ok) {
-				return response
-			} else {
-				let errorMessage = `${response.status} (${response.statusText})`,
-				error = new Error(errorMessage)
-				throw(error)
-			}
-		})
-		.then(response => response.json())
-		.then(body => {
-			this.setState({ armies: body })
-		})
-		.catch(error => console.error(`Error in fetch: ${error.message}`))
-
-		fetch('/api/v1/wmr_units')
-		.then(response => {
-			if (response.ok) {
-				return response
-			} else {
-				let errorMessage = `${response.status} (${response.statusText})`,
-				error = new Error(errorMessage)
-				throw(error)
-			}
-		})
-		.then(response => response.json())
-		.then(body => {
-			this.setState({ units: body })
-		})
-		.catch(error => console.error(`Error in fetch: ${error.message}`))
-	
-		fetch('/api/v1/wmr_magic_items')
-		.then(response => {
-			if (response.ok) {
-				return response
-			} else {
-				let errorMessage = `${response.status} (${response.statusText})`,
-				error = new Error(errorMessage)
-				throw(error)
-			}
-		})
-		.then(response => response.json())
-		.then(body => {
-			this.setState({ unitOptions: body })
-		})
-		.catch(error => console.error(`Error in fetch: ${error.message}`))
-
-		fetch('/api/v1/wmr_spells')
-		.then(response => {
-			if (response.ok) {
-				return response
-			} else {
-				let errorMessage = `${response.status} (${response.statusText})`,
-				error = new Error(errorMessage)
-				throw(error)
-			}
-		})
-		.then(response => response.json())
-		.then(body => {
-			this.setState({ artefacts: body })
-		})
-		.catch(error => console.error(`Error in fetch: ${error.message}`))
+			specialRules: [],
+			auxiliaries: [],
+			magicItems: []		}
 	}
 
 	render() {
@@ -130,10 +69,11 @@ class WmrOuterContainer extends Component {
 		return (
 			<div id="sections-container-id" className={style['sections-container']}>	
 				<WmrInnerContainer
-					armies={this.state.armies}
-					units={this.state.units}
-					magicItems={this.state.magicItems}
-					spells={this.state.spells}
+					armies={wmrArmyData}
+					units={wmrUnitData}
+					specialRules={wmrSpecialRuleData}
+					auxiliaries={wmrAuxiliaryData}
+					magicItems={wmrMagicItemData}
 					dropdownStyle={dropdownStyle}
 				/>
 			</div>

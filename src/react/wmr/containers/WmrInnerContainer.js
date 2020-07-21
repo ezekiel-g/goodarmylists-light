@@ -1,245 +1,482 @@
 import style from '../../../assets/stylesheets/index.module.css'
-import paypal from '../../../assets/images/paypal.gif'
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import Select from 'react-select'
-import Modal from 'react-modal'
-import FormattedList from '../components/FormattedList'
-import UnitEntryButton from '../components/UnitEntryButton'
-import UnitEntryNameTile from '../components/UnitEntryNameTile'
-import MagicItemIcon from '../components/MagicItemIcon'
-
-import MagicItemSelectionTile from '../components/MagicItemSelectionTile'
+import EmpireContainer from './EmpireContainer'
+import TombKingsContainer from './TombKingsContainer'
+import ChaosContainer from './ChaosContainer'
+import OrcsContainer from './OrcsContainer'
+import HighElvesContainer from './HighElvesContainer'
+import DwarfsContainer from './DwarfsContainer'
+import SkavenContainer from './SkavenContainer'
+import LizardmenContainer from './LizardmenContainer'
+import BretonniaContainer from './BretonniaContainer'
+import KislevContainer from './KislevContainer'
+import DarkElvesContainer from './DarkElvesContainer'
+import DemonsContainer from './DemonsContainer'
+import ArabyContainer from './ArabyContainer'
+import VampireCountsContainer from './VampireCountsContainer'
+import DogsOfWarContainer from './DogsOfWarContainer'
+import OgreKingdomsContainer from './OgreKingdomsContainer'
+import AlbionContainer from './AlbionContainer'
+import GoblinsContainer from './GoblinsContainer'
+import WitchHuntersContainer from './WitchHuntersContainer'
+import ChaosDwarfsContainer from './ChaosDwarfsContainer'
+import WoodElvesContainer from './WoodElvesContainer'
+import BeastmenContainer from './BeastmenContainer'
+import NorseContainer from './NorseContainer'
 
 class WmrInnerContainer extends Component {
 	constructor(props) {
 		super(props)
 		this.state = {
-			selectedArmy: '',
-			listedUnits: [],
-			selectedMagicItems: [],
-			pointTotal: 0,
-			indexCount: 0,
-			formattedListVisible: false,
-			magicItemsVisible: false,
-			unitBeingGivenMagicItem: ''
+			selectedArmy: ''
 		}
 		this.updateSelectedArmy = this.updateSelectedArmy.bind(this)
 		this.calculatePointTotal = this.calculatePointTotal.bind(this)
-		this.calculateMinMaxes = this.calculateMinMaxes.bind(this)
-		this.determineIfGreyedOut = this.determineIfGreyedOut.bind(this)
-		this.addUnitToList = this.addUnitToList.bind(this)
-		this.removeUnitFromList = this.removeUnitFromList.bind(this)
-		this.selectMagicItem = this.selectMagicItem.bind(this)
-		this.removeMagicItem = this.removeMagicItem.bind(this)
-		this.toggleFormattedList = this.toggleFormattedList.bind(this)
-		this.toggleMagicItems = this.toggleMagicItems.bind(this)
-		this.updateUnitBeingGivenMagicItem = this.updateUnitBeingGivenMagicItem.bind(this)
-		this.clearList = this.clearList.bind(this)
+		this.calculateUnitCount = this.calculateUnitCount.bind(this)
+		this.calculateMountCount = this.calculateMountCount.bind(this)
+		this.calculateBreakPoint = this.calculateBreakPoint.bind(this)
+		this.calculateMaximumCount = this.calculateMaximumCount.bind(this)
 	}
 
 	updateSelectedArmy(army) {
 		this.setState({ selectedArmy: army.value })
-		this.clearList()
 	}
 
-	calculatePointTotal() {
-
+	calculatePointTotal(unitArray, auxiliaryArray, magicItemArray) {
+		let pointTotal = 0
+		let i2
+		for (i2 = 0; i2 < unitArray.length; i2++) {
+			pointTotal += (parseInt(unitArray[i2].unit.points) * parseInt(unitArray[i2].count))
+		}
+		for (i2 = 0; i2 < auxiliaryArray.length; i2++) {
+			pointTotal += parseInt(auxiliaryArray[i2].auxiliary.points) * auxiliaryArray[i2].count
+		}			
+		for (i2 = 0; i2 < magicItemArray.length; i2++) {
+			pointTotal += parseInt(magicItemArray[i2].magicItem.points)
+		}			
+		return pointTotal
 	}
 
-	calculateMinMaxes() {
-
+	calculateUnitCount(array) {
+		let count = 0
+		let i2
+		for (i2 = 0; i2 < array.length; i2++) {
+			count += array[i2].count
+		}
+		return count
 	}
 
-	determineIfGreyedOut() {
-
+	calculateMountCount(array) {
+		let count = 0
+		// let i2
+		// for (i2 = 0; i2 < array.length; i2++) {
+		// 	if (
+		// 		array[i2].auxiliary.special_rules.includes('not independent') === false &&
+		// 		array[i2].auxiliary.name !== 'Grail Reliquae (Bretonnia)' &&
+		// 		array[i2].auxiliary.name !== 'Tzarina (Kislev)' &&
+		// 		array[i2].auxiliary.name !== 'Demonic Wings (Demons)' &&
+		// 		array[i2].auxiliary.name !== 'Favor of the Gods (Demons)' &&
+		// 		array[i2].auxiliary.name !== 'Sorcerer Lord (Chaos Dwarfs)' &&
+		// 		array[i2].auxiliary.name !== 'Were Kin (Norse)'
+		// 	) {
+		// 		count += array[i2].count
+		// 	}
+		// }
+		return count
 	}
 
-	addUnitToList() {
-
+	calculateBreakPoint(unitArray, auxiliaryArray) {
+		let breakPointUnits = 0
+		let i2
+		for (i2 = 0; i2 < unitArray.length; i2++) {
+			if (
+				unitArray[i2].unit.unit_type !== 'General' &&
+				unitArray[i2].unit.unit_type !== 'Hero' &&
+				unitArray[i2].unit.unit_type !== 'Wizard' &&
+				unitArray[i2].unit.name.includes('Pump Wagon') === false
+			) {
+				breakPointUnits += unitArray[i2].count
+			}
+		}
+		let breakPoint = Math.floor(breakPointUnits / 2)
+		return breakPoint
 	}
 
-	removeUnitFromList() {
+	calculateMaximumCount(pointTotal) {
+		let maximumCount
+		if (pointTotal < 2000) {
+			maximumCount = 1
+		} else {
+			let calculation = (pointTotal / 1000).toFixed(20)
+			maximumCount = Math.floor(calculation)
+		}
+		return maximumCount
+	}				
 
-	}
-
-	selectMagicItem() {
-
-	}
-
-	removeMagicItem() {
-
-	}
-
-	toggleFormattedList() {
-
-	}
-
-	toggleMagicItems() {
-
-	}
-
-	updateUnitBeingGivenMagicItem() {
-
-	}
-
-	clearList() {
-		this.setState({
-			listedUnits: [],
-			selectedMagicItems: [],
-			pointTotal: 0,
-			indexCount: 0,
-			formattedListVisible: false,
-			magicItemsVisible: false,
-			unitBeingGivenMagicItem: ''
-		})
-	}
-	
 	render() {
-		let appElement = document.getElementById('app')
+		document.body.style.overflow = 'hidden'
 		let selectedArmy = this.state.selectedArmy
 		let armyOptions = []
 		let labeledArmy
-		let i
-		for (i = 0; i < this.props.armies.length; i++) {
-			labeledArmy = { value: this.props.armies[i], label: this.props.armies[i].display_name }
+		let specialRules = []
+		let i2
+		for (i2 = 0; i2 < this.props.armies.length; i2++) {
+			labeledArmy = { value: this.props.armies[i2], label: this.props.armies[i2].display_name }
 			armyOptions.push(labeledArmy)
 		}
-				let displayNoneBottom
-		if (selectedArmy === '') {
-			displayNoneBottom = style['display-none']
-		} else {
-			displayNoneBottom = ''
-		}
-		let magicItemSelectionTile
-		let clearListDiv
-		let unitEntryButtonTitle
-		let unitEntryButtonDisplay
-		let unitEntryButtonDisplayUnlocked
-		let viewListButtonDisplay
-		let pointTotalDisplay
-		let unsortedListedUnits = []
-		let listedUnits = this.state.listedUnits.sort((a, b) => {
-			return ( parseInt(a.unit.order_within_army) - parseInt(b.unit.order_within_army) )
-		})
-		let listedUnitTileDisplay
-
-		if (this.state.magicItemsVisible === true) {
-			magicItemSelectionTile =
-				<div className={style['unit-option-selection-tile']}>
-					<MagicItemSelectionTile
-						unitObject={this.state.unitBeingGivenOption}
-						selectedMagicItems={this.state.selectedMagicItems}
-						toggleMagicItems={this.toggleMagicItems}
-					/>
-				</div>
-		}
-
-		if (this.state.selectedArmy === '') {
-			document.body.style.overflow = 'hidden'
-		} else {
-			document.body.style.overflow = 'visible'
-			clearListDiv =
-				<div className={style['clear-list-div']}>
-					<span onClick={this.clearList} className={style['clear-or-cancel-label']}>Clear List</span>
-				</div>
-			unitEntryButtonTitle = 
-				<div className={style['unit-entry-button-title-bar-wmr']}>
-					<h3 className={style['unit-entry-button-title']}>Available Units</h3>
-				</div>
-
-			let units = this.props.units.sort((a, b) => {
-				return ( parseInt(a.order_within_army) - parseInt(b.order_within_army) )
-			})
-			let unitsInArmy = []
-			for (i = 0; i < units.length; i++) {	
-				if (parseInt(units[i].wmr_army_id) === parseInt(selectedArmy.id)) {
-					unitsInArmy.push(units[i])
-				}
+		for (i2 = 0; i2 < this.props.specialRules.length; i2++) {
+			if (this.props.specialRules[i2].army_name === selectedArmy.name) {
+				specialRules.push(this.props.specialRules[i2])
 			}
-			unitEntryButtonDisplay = unitsInArmy.map(unit => {
-				return (
-					<UnitEntryButton
-						key={parseInt(unit.id)}
-						id={parseInt(unit.id)}
-						unit={unit}
-						addUnitToList={this.addUnitToList}
-					/>
-				)			
-			})
-
-			pointTotalDisplay =
-				<div className={style['point-total']}>
-					Points: <span className={style['bold']}>{this.state.pointTotal}</span><br />
-					Unit Count: <span className={style['bold']}>{this.state.listedUnits.length}</span>
-				</div>
-
-			listedUnitTileDisplay = listedUnits.map(unitObject => {
-				return (
-					<div
-						key={unitObject.index}
-						id={unitObject.index}
-						className={style['list-output-side-row']}
-					>
-						<div className={style['list-entry-div']}>
-							<MagicItemIcon
-								key={unitObject.index + 20000}
-								id={parseInt(unitObject.unit.id)}
-								unitObject={unitObject}
-								updateUnitBeingGivenMagicItem={this.updateUnitBeingGivenMagicItem}
-							/>
-						</div>
-						<div className={style['spacer-div']}>_</div>
-						<UnitEntryNameTile
-							key={unitObject.index}
-							id={unitObject.index}
-							unitObject={unitObject}
-							selectedArtifacts={this.state.selectedArtifacts}
-							removeMagicItem={this.removeMagicItem}
-							removeUnitFromList={this.removeUnitFromList}
-						/>
-					</div>
-				)
-			})
 		}
-
-		let listOutputSide =
-			<div>
-				{pointTotalDisplay}<br />
-				{listedUnitTileDisplay}
-				{viewListButtonDisplay}
-			</div>
-
-		let display =
-			<div id="hidden-section-id" className={displayNoneBottom}>
-				{clearListDiv}	
-				<div className={style['everything-after-army-dropdown']}>
-					<div>
-						<div className={style['unit-entry-buttons']}>
-							{unitEntryButtonTitle}<br />
-							{unitEntryButtonDisplay}
-						</div>
-					</div>
-					<div>
-						<div className={style['list-output-side']}>
-							<div className={style['list-title-bar-wmr']}>
-								<h3 className={style['list-title']}>{this.state.selectedArmy.display_name}</h3>
-							</div><br />
-							{listOutputSide}
-						</div>
-					</div>
-				</div>
-				<div className={style['email-div']} id="email-div-id">
-					<span>Email:{' '}admin@goodarmylists.com</span>
-					<form className={style['paypal-form']} action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-						<input type="hidden" name="cmd" value="_donations" />
-						<input type="hidden" name="business" value="admin@goodarmylists.com" />
-						<input type="hidden" name="currency_code" value="USD" />
-						<input type="image" src={paypal} border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
-						<img alt="" border="0" src={paypal} width="1" height="1" />
-					</form>
-				</div>
-			</div>
+		
+		let display
+		if (selectedArmy.display_name === 'The Empire') {
+			display =
+				<EmpireContainer
+					selectedArmy={this.state.selectedArmy}
+					units={this.props.units}
+					specialRules={specialRules}
+					auxiliaries={this.props.auxiliaries}
+					magicItems={this.props.magicItems}
+					calculatePointTotal={this.calculatePointTotal}
+					calculateUnitCount={this.calculateUnitCount}
+					calculateMountCount={this.calculateMountCount}
+					calculateBreakPoint={this.calculateBreakPoint}
+					calculateMaximumCount={this.calculateMaximumCount}
+				/>
+		}
+		if (selectedArmy.display_name === 'Tomb Kings') {
+			display =
+				<TombKingsContainer 
+					selectedArmy={this.state.selectedArmy}
+					units={this.props.units}
+					specialRules={specialRules}
+					auxiliaries={this.props.auxiliaries}
+					magicItems={this.props.magicItems}
+					calculatePointTotal={this.calculatePointTotal}
+					calculateUnitCount={this.calculateUnitCount}
+					calculateMountCount={this.calculateMountCount}
+					calculateBreakPoint={this.calculateBreakPoint}
+					calculateMaximumCount={this.calculateMaximumCount}
+				/>
+		}
+		if (selectedArmy.display_name === 'Chaos') {
+			display =
+				<ChaosContainer 
+					selectedArmy={this.state.selectedArmy}
+					units={this.props.units}
+					specialRules={specialRules}
+					auxiliaries={this.props.auxiliaries}
+					magicItems={this.props.magicItems}
+					calculatePointTotal={this.calculatePointTotal}
+					calculateUnitCount={this.calculateUnitCount}
+					calculateMountCount={this.calculateMountCount}
+					calculateBreakPoint={this.calculateBreakPoint}
+					calculateMaximumCount={this.calculateMaximumCount}
+				/>
+		}
+		if (selectedArmy.display_name === 'Orcs') {
+			display =
+				<OrcsContainer 
+					selectedArmy={this.state.selectedArmy}
+					units={this.props.units}
+					specialRules={specialRules}
+					auxiliaries={this.props.auxiliaries}
+					magicItems={this.props.magicItems}
+					calculatePointTotal={this.calculatePointTotal}
+					calculateUnitCount={this.calculateUnitCount}
+					calculateMountCount={this.calculateMountCount}
+					calculateBreakPoint={this.calculateBreakPoint}
+					calculateMaximumCount={this.calculateMaximumCount}
+				/>
+		}
+		if (selectedArmy.display_name === 'High Elves') {
+			display =
+				<HighElvesContainer 
+					selectedArmy={this.state.selectedArmy}
+					units={this.props.units}
+					specialRules={specialRules}
+					auxiliaries={this.props.auxiliaries}
+					magicItems={this.props.magicItems}
+					calculatePointTotal={this.calculatePointTotal}
+					calculateUnitCount={this.calculateUnitCount}
+					calculateMountCount={this.calculateMountCount}
+					calculateBreakPoint={this.calculateBreakPoint}
+					calculateMaximumCount={this.calculateMaximumCount}
+				/>
+		}
+		if (selectedArmy.display_name === 'Dwarfs') {
+			display =
+				<DwarfsContainer 
+					selectedArmy={this.state.selectedArmy}
+					units={this.props.units}
+					specialRules={specialRules}
+					auxiliaries={this.props.auxiliaries}
+					magicItems={this.props.magicItems}
+					calculatePointTotal={this.calculatePointTotal}
+					calculateUnitCount={this.calculateUnitCount}
+					calculateMountCount={this.calculateMountCount}
+					calculateBreakPoint={this.calculateBreakPoint}
+					calculateMaximumCount={this.calculateMaximumCount}
+				/>
+		}
+		if (selectedArmy.display_name === 'Skaven') {
+			display =
+				<SkavenContainer 
+					selectedArmy={this.state.selectedArmy}
+					units={this.props.units}
+					specialRules={specialRules}
+					auxiliaries={this.props.auxiliaries}
+					magicItems={this.props.magicItems}
+					calculatePointTotal={this.calculatePointTotal}
+					calculateUnitCount={this.calculateUnitCount}
+					calculateMountCount={this.calculateMountCount}
+					calculateBreakPoint={this.calculateBreakPoint}
+					calculateMaximumCount={this.calculateMaximumCount}
+				/>
+		}
+		if (selectedArmy.display_name === 'Lizardmen') {
+			display =
+				<LizardmenContainer 
+					selectedArmy={this.state.selectedArmy}
+					units={this.props.units}
+					specialRules={specialRules}
+					auxiliaries={this.props.auxiliaries}
+					magicItems={this.props.magicItems}
+					calculatePointTotal={this.calculatePointTotal}
+					calculateUnitCount={this.calculateUnitCount}
+					calculateMountCount={this.calculateMountCount}
+					calculateBreakPoint={this.calculateBreakPoint}
+					calculateMaximumCount={this.calculateMaximumCount}
+				/>
+		}
+		if (selectedArmy.display_name === 'Bretonnia') {
+			display =
+				<BretonniaContainer 
+					selectedArmy={this.state.selectedArmy}
+					units={this.props.units}
+					specialRules={specialRules}
+					auxiliaries={this.props.auxiliaries}
+					magicItems={this.props.magicItems}
+					calculatePointTotal={this.calculatePointTotal}
+					calculateUnitCount={this.calculateUnitCount}
+					calculateMountCount={this.calculateMountCount}
+					calculateMaximumCount={this.calculateMaximumCount}
+				/>
+		}
+		if (selectedArmy.display_name === 'Kislev') {
+			display =
+				<KislevContainer 
+					selectedArmy={this.state.selectedArmy}
+					units={this.props.units}
+					specialRules={specialRules}
+					auxiliaries={this.props.auxiliaries}
+					magicItems={this.props.magicItems}
+					calculatePointTotal={this.calculatePointTotal}
+					calculateUnitCount={this.calculateUnitCount}
+					calculateMountCount={this.calculateMountCount}
+					calculateBreakPoint={this.calculateBreakPoint}
+					calculateMaximumCount={this.calculateMaximumCount}
+				/>
+		}
+		if (selectedArmy.display_name === 'Dark Elves') {
+			display =
+				<DarkElvesContainer 
+					selectedArmy={this.state.selectedArmy}
+					units={this.props.units}
+					specialRules={specialRules}
+					auxiliaries={this.props.auxiliaries}
+					magicItems={this.props.magicItems}
+					calculatePointTotal={this.calculatePointTotal}
+					calculateUnitCount={this.calculateUnitCount}
+					calculateMountCount={this.calculateMountCount}
+					calculateBreakPoint={this.calculateBreakPoint}
+					calculateMaximumCount={this.calculateMaximumCount}
+				/>
+		}
+		if (selectedArmy.display_name === 'Demons') {
+			display =
+				<DemonsContainer 
+					selectedArmy={this.state.selectedArmy}
+					units={this.props.units}
+					specialRules={specialRules}
+					auxiliaries={this.props.auxiliaries}
+					magicItems={this.props.magicItems}
+					calculatePointTotal={this.calculatePointTotal}
+					calculateUnitCount={this.calculateUnitCount}
+					calculateMountCount={this.calculateMountCount}
+					calculateBreakPoint={this.calculateBreakPoint}
+					calculateMaximumCount={this.calculateMaximumCount}
+				/>
+		}
+		if (selectedArmy.display_name === 'Araby') {
+			display =
+				<ArabyContainer 
+					selectedArmy={this.state.selectedArmy}
+					units={this.props.units}
+					specialRules={specialRules}
+					auxiliaries={this.props.auxiliaries}
+					magicItems={this.props.magicItems}
+					calculatePointTotal={this.calculatePointTotal}
+					calculateUnitCount={this.calculateUnitCount}
+					calculateMountCount={this.calculateMountCount}
+					calculateBreakPoint={this.calculateBreakPoint}
+					calculateMaximumCount={this.calculateMaximumCount}
+				/>
+		}
+		if (selectedArmy.display_name === 'Vampire Counts') {
+			display =
+				<VampireCountsContainer 
+					selectedArmy={this.state.selectedArmy}
+					units={this.props.units}
+					specialRules={specialRules}
+					auxiliaries={this.props.auxiliaries}
+					magicItems={this.props.magicItems}
+					calculatePointTotal={this.calculatePointTotal}
+					calculateUnitCount={this.calculateUnitCount}
+					calculateMountCount={this.calculateMountCount}
+					calculateBreakPoint={this.calculateBreakPoint}
+					calculateMaximumCount={this.calculateMaximumCount}
+				/>
+		}
+		if (selectedArmy.display_name === 'Dogs of War') {
+			display =
+				<DogsOfWarContainer 
+					selectedArmy={this.state.selectedArmy}
+					units={this.props.units}
+					specialRules={specialRules}
+					auxiliaries={this.props.auxiliaries}
+					magicItems={this.props.magicItems}
+					calculatePointTotal={this.calculatePointTotal}
+					calculateUnitCount={this.calculateUnitCount}
+					calculateMountCount={this.calculateMountCount}
+					calculateBreakPoint={this.calculateBreakPoint}
+					calculateMaximumCount={this.calculateMaximumCount}
+				/>
+		}
+		if (selectedArmy.display_name === 'Ogre Kingdoms') {
+			display =
+				<OgreKingdomsContainer 
+					selectedArmy={this.state.selectedArmy}
+					units={this.props.units}
+					specialRules={specialRules}
+					auxiliaries={this.props.auxiliaries}
+					magicItems={this.props.magicItems}
+					calculatePointTotal={this.calculatePointTotal}
+					calculateUnitCount={this.calculateUnitCount}
+					calculateMountCount={this.calculateMountCount}
+					calculateBreakPoint={this.calculateBreakPoint}
+					calculateMaximumCount={this.calculateMaximumCount}
+				/>
+		}
+		if (selectedArmy.display_name === 'Albion') {
+			display =
+				<AlbionContainer 
+					selectedArmy={this.state.selectedArmy}
+					units={this.props.units}
+					specialRules={specialRules}
+					auxiliaries={this.props.auxiliaries}
+					magicItems={this.props.magicItems}
+					calculatePointTotal={this.calculatePointTotal}
+					calculateUnitCount={this.calculateUnitCount}
+					calculateMountCount={this.calculateMountCount}
+					calculateBreakPoint={this.calculateBreakPoint}
+					calculateMaximumCount={this.calculateMaximumCount}
+				/>
+		}
+		if (selectedArmy.display_name === 'Goblins') {
+			display =
+				<GoblinsContainer 
+					selectedArmy={this.state.selectedArmy}
+					units={this.props.units}
+					specialRules={specialRules}
+					auxiliaries={this.props.auxiliaries}
+					magicItems={this.props.magicItems}
+					calculatePointTotal={this.calculatePointTotal}
+					calculateUnitCount={this.calculateUnitCount}
+					calculateMountCount={this.calculateMountCount}
+					calculateBreakPoint={this.calculateBreakPoint}
+					calculateMaximumCount={this.calculateMaximumCount}
+				/>
+		}
+		if (selectedArmy.display_name === 'Witch Hunters') {
+			display =
+				<WitchHuntersContainer 
+					selectedArmy={this.state.selectedArmy}
+					units={this.props.units}
+					specialRules={specialRules}
+					auxiliaries={this.props.auxiliaries}
+					magicItems={this.props.magicItems}
+					calculatePointTotal={this.calculatePointTotal}
+					calculateUnitCount={this.calculateUnitCount}
+					calculateMountCount={this.calculateMountCount}
+					calculateBreakPoint={this.calculateBreakPoint}
+					calculateMaximumCount={this.calculateMaximumCount}
+				/>
+		}
+		if (selectedArmy.display_name === 'Chaos Dwarfs') {
+			display =
+				<ChaosDwarfsContainer 
+					selectedArmy={this.state.selectedArmy}
+					units={this.props.units}
+					specialRules={specialRules}
+					auxiliaries={this.props.auxiliaries}
+					magicItems={this.props.magicItems}
+					calculatePointTotal={this.calculatePointTotal}
+					calculateUnitCount={this.calculateUnitCount}
+					calculateMountCount={this.calculateMountCount}
+					calculateBreakPoint={this.calculateBreakPoint}
+					calculateMaximumCount={this.calculateMaximumCount}
+				/>
+		}
+		if (selectedArmy.display_name === 'Wood Elves') {
+			display =
+				<WoodElvesContainer 
+					selectedArmy={this.state.selectedArmy}
+					units={this.props.units}
+					specialRules={specialRules}
+					auxiliaries={this.props.auxiliaries}
+					magicItems={this.props.magicItems}
+					calculatePointTotal={this.calculatePointTotal}
+					calculateUnitCount={this.calculateUnitCount}
+					calculateMountCount={this.calculateMountCount}
+					calculateBreakPoint={this.calculateBreakPoint}
+					calculateMaximumCount={this.calculateMaximumCount}
+				/>
+		}
+		if (selectedArmy.display_name === 'Beastmen') {
+			display =
+				<BeastmenContainer 
+					selectedArmy={this.state.selectedArmy}
+					units={this.props.units}
+					specialRules={specialRules}
+					auxiliaries={this.props.auxiliaries}
+					magicItems={this.props.magicItems}
+					calculatePointTotal={this.calculatePointTotal}
+					calculateUnitCount={this.calculateUnitCount}
+					calculateMountCount={this.calculateMountCount}
+					calculateBreakPoint={this.calculateBreakPoint}
+					calculateMaximumCount={this.calculateMaximumCount}
+				/>
+		}
+		if (selectedArmy.display_name === 'Norse') {
+			display =
+				<NorseContainer 
+					selectedArmy={this.state.selectedArmy}
+					units={this.props.units}
+					specialRules={specialRules}
+					auxiliaries={this.props.auxiliaries}
+					magicItems={this.props.magicItems}
+					calculatePointTotal={this.calculatePointTotal}
+					calculateUnitCount={this.calculateUnitCount}
+					calculateMountCount={this.calculateMountCount}
+					calculateBreakPoint={this.calculateBreakPoint}
+					calculateMaximumCount={this.calculateMaximumCount}
+				/>
+		}
 
 		return (
 			<div>
@@ -254,7 +491,7 @@ class WmrInnerContainer extends Component {
 							</span>
 						</div>
 						<div className={style['main-title-box-wmr']}>
-							<h2 className={style['main-title']}>Make a Good Warmaster Revolution List</h2>
+							<h2 className={style['main-title']}>Make a Good Warmaster* List</h2>
 						</div>
 						<div className={style['copyright-notice']}>All content is unofficial and unendorsed by Games Workshop Limited</div>
 						<div className={style['css-remover']}>
