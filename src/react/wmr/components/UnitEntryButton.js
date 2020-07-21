@@ -3,56 +3,74 @@ import React from 'react'
 
 const UnitEntryButton = props => {
 	let extraSpace
-	if (parseInt(props.unit.points_per_unit) < 100) {
+	if (parseInt(props.unit.points) < 100) {
 		extraSpace = <span className={style['hidden']}>{'_'}</span>
 	}
 	let greyedOut = false
-	// let i
-	// for (i = 0; i < props.greyedOutUnits.length; i++) {
-	// 	if (parseInt(props.greyedOutUnits[i].id) === parseInt(props.unit.id)) {
-	// 		greyedOut = true
-	// 	}
-	// }
+	let i2
+	for (i2 = 0; i2 < props.greyedOutUnits.length; i2++) {
+		if (props.greyedOutUnits[i2].name === props.unit.name) {
+			greyedOut = true
+		}
+	}
 
-	let display
+	let pointDisplay
+	let unitNameDisplay
 	if (greyedOut === false) {
-		display =
-			<div className={style['unit-entry-button-row']}>
-				<div className={style['unit-entry-button-point-value-div']}>
-					{extraSpace}
-					<span className={style['unit-entry-button-point-value-label-wmr']}>
-						{parseInt(props.unit.points_per_unit)}{' '}
-					</span>
-				</div>
-				<div className={style['unit-entry-button-label-div']}>
-					<span
-						onClick={() => props.addUnitToList(props.unit)}
-						className={style['unit-entry-button-label']}
-					>
-						{props.unit.display_name}
-					</span>
-				</div>
-			</div>		
+		if (props.unit.has_special_rules === true || props.unit.has_special_rules === 't') {
+			pointDisplay =
+				<span
+					onClick={() => props.updateUnitWhoseInformationIsShown(props.unit)}
+					className={style['unit-entry-button-point-value-label-wmr']}
+				>
+					{parseInt(props.unit.points)}
+				</span>
+		} else {
+			pointDisplay =
+				<span className={style['unit-entry-button-point-value-no-special']}>
+					{parseInt(props.unit.points)}
+				</span>
+		}
+		unitNameDisplay =
+			<span
+				onClick={() => props.addUnit(props.unit)}
+				className={style['unit-entry-button-label']}
+			>
+				{props.unit.display_name}
+			</span>
 	} else {
-		display =
-			<div className={style['unit-entry-button-row']}>
-				<div className={style['unit-entry-button-point-value-div-greyed-out']}>
-					{extraSpace}
-					<span className= {style['unit-entry-button-point-value-label-greyed-out']}>
-						{parseInt(props.unit.points_per_unit)}{' '}
-					</span>
-				</div>
-				<div>
-					<span className={style['unit-entry-button-label-greyed-out']}>
-						{props.unit.display_name}
-					</span>
-				</div>
-			</div>
+		if (props.unit.has_special_rules === true || props.unit.has_special_rules === 't') {
+			pointDisplay =
+				<span
+					onClick={() => props.updateUnitWhoseInformationIsShown(props.unit)}
+					className={style['unit-entry-button-point-value-label-greyed-out']}
+				>
+					{parseInt(props.unit.points)}
+				</span>
+		} else {
+			pointDisplay =
+				<span className={style['unit-entry-button-point-value-no-special-greyed-out']}>
+					{parseInt(props.unit.points)}
+				</span>
+		}
+		unitNameDisplay =
+			<span className={style['unit-entry-button-label-greyed-out']}>
+				{props.unit.display_name}
+			</span>
 	}
 
 	return (
 		<div className={style['unit-entry-button']}>
-			{display}
+			<div className={style['unit-entry-button-row']}>
+				<div className={style['unit-entry-button-point-value-div']}>
+					{extraSpace}
+					{pointDisplay}
+					<span>{' '}</span>
+				</div>
+				<div className={style['unit-entry-button-label-div']}>
+					{unitNameDisplay}
+				</div>
+			</div>	
 		</div>
 	)
 }
