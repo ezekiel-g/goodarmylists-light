@@ -536,7 +536,7 @@ class WmrOuterContainer extends Component {
 		return coreUnitCounts
 	}
 
-	determineIfValidAfterGameSizeChange(unitArray, selectedArmyName, oldMaximum, newMaximum) {
+	determineIfValidAfterGameSizeChange(unitArray, selectedArmyName, pointTotal, oldMaximum, newMaximum) {
 		let unitCount = this.calculateUnitCount(unitArray)
 		let coreUnitCounts = this.calculateCoreUnitCounts(unitArray, selectedArmyName, newMaximum)
 		let willBeKept = false
@@ -545,6 +545,7 @@ class WmrOuterContainer extends Component {
 			if (
 				coreUnitCounts.empireHalberdierCount >= newMaximum * 2 &&
 				coreUnitCounts.empireCrossbowmanCount >= newMaximum * 2 &&
+				pointTotal <= newMaximum * 1000 + 999 &&
 				unitCount > oldMaximum * 4
 			) {
 				willBeKept = true
@@ -554,6 +555,7 @@ class WmrOuterContainer extends Component {
 			if (
 				coreUnitCounts.tombKingSkeletonCount >= newMaximum * 2 &&
 				coreUnitCounts.skeletonBowmanCount >= newMaximum * 2 &&
+				pointTotal <= newMaximum * 1000 + 999 &&
 				unitCount > oldMaximum * 4
 			) {
 				willBeKept = true
@@ -563,6 +565,7 @@ class WmrOuterContainer extends Component {
 			if (
 				coreUnitCounts.chaosWarriorCount >= newMaximum &&
 				coreUnitCounts.chaosMarauderCount >= newMaximum &&
+				pointTotal <= newMaximum * 1000 + 999 &&
 				unitCount > oldMaximum * 2
 			) {
 				willBeKept = true
@@ -572,6 +575,7 @@ class WmrOuterContainer extends Component {
 			if (
 				coreUnitCounts.orcWarriorCount >= newMaximum * 2 &&
 				coreUnitCounts.orcGoblinCount >= newMaximum * 2 &&
+				pointTotal <= newMaximum * 1000 + 999 &&
 				unitCount > oldMaximum * 4
 			) {
 				willBeKept = true
@@ -581,6 +585,7 @@ class WmrOuterContainer extends Component {
 			if (
 				coreUnitCounts.highElfSpearmanCount >= newMaximum * 2 &&
 				coreUnitCounts.highElfArcherCount >= newMaximum &&
+				pointTotal <= newMaximum * 1000 + 999 &&
 				unitCount > oldMaximum * 3
 			) {
 				willBeKept = true
@@ -589,6 +594,7 @@ class WmrOuterContainer extends Component {
 		if (selectedArmyName === 'Dwarfs') {
 			if (
 				coreUnitCounts.dwarfWarriorCount >= newMaximum * 2 &&
+				pointTotal <= newMaximum * 1000 + 999 &&
 				unitCount > oldMaximum * 2
 			) {
 				willBeKept = true
@@ -598,6 +604,7 @@ class WmrOuterContainer extends Component {
 			if (
 				coreUnitCounts.clanratCount >= newMaximum * 2 &&
 				coreUnitCounts.ratSwarmCount >= newMaximum * 2 &&
+				pointTotal <= newMaximum * 1000 + 999 &&
 				unitCount > oldMaximum * 4
 			) {
 				willBeKept = true
@@ -607,6 +614,7 @@ class WmrOuterContainer extends Component {
 			if (
 				coreUnitCounts.skinkCount >= newMaximum * 2 &&
 				coreUnitCounts.saurusCount >= newMaximum * 2 &&
+				pointTotal <= newMaximum * 1000 + 999 &&
 				unitCount > oldMaximum * 4
 			) {
 				willBeKept = true
@@ -617,6 +625,7 @@ class WmrOuterContainer extends Component {
 				coreUnitCounts.manAtArmsCount >= newMaximum &&
 				coreUnitCounts.squireCount >= newMaximum &&
 				coreUnitCounts.bretonnianKnightCount >= newMaximum &&
+				pointTotal <= newMaximum * 1000 + 999 &&
 				unitCount > oldMaximum * 3
 			) {
 				willBeKept = true
@@ -626,6 +635,7 @@ class WmrOuterContainer extends Component {
 			if (
 				coreUnitCounts.kislevHorseArcherCount>= newMaximum * 2 &&
 				coreUnitCounts.kislevAxemanCount >= newMaximum * 2 &&
+				pointTotal <= newMaximum * 1000 + 999 &&
 				unitCount > oldMaximum * 4
 			) {
 				willBeKept = true
@@ -635,6 +645,7 @@ class WmrOuterContainer extends Component {
 			if (
 				coreUnitCounts.darkElfSpearmanCount >= newMaximum * 2 &&
 				coreUnitCounts.darkElfCrossbowmanCount >= newMaximum &&
+				pointTotal <= newMaximum * 1000 + 999 &&
 				unitCount > oldMaximum * 3
 			) {
 				willBeKept = true
@@ -643,6 +654,7 @@ class WmrOuterContainer extends Component {
 		if (selectedArmyName === 'Demons') {
 			if (
 				coreUnitCounts.demonHordeCount >= newMaximum * 3 &&
+				pointTotal <= newMaximum * 1000 + 999 &&
 				unitCount > oldMaximum * 3
 			) {
 				willBeKept = true
@@ -652,6 +664,7 @@ class WmrOuterContainer extends Component {
 			if (
 				coreUnitCounts.arabySpearmanCount >= newMaximum * 2 &&
 				coreUnitCounts.arabyBowmanCount >= newMaximum * 2 &&
+				pointTotal <= newMaximum * 1000 + 999 &&
 				unitCount > oldMaximum * 4
 			) {
 				willBeKept = true
@@ -661,6 +674,7 @@ class WmrOuterContainer extends Component {
 			if (
 				coreUnitCounts.vampireCountSkeletonCount >= newMaximum * 2 &&
 				coreUnitCounts.zombieCount >= newMaximum * 2 &&
+				pointTotal <= newMaximum * 1000 + 999 &&
 				unitCount > oldMaximum * 4
 			) {
 				willBeKept = true
@@ -670,6 +684,7 @@ class WmrOuterContainer extends Component {
 			if (
 				coreUnitCounts.pikemanCount >= newMaximum * 2 &&
 				coreUnitCounts.dogsOfWarCrossbowmanCount >= newMaximum * 2 &&
+				pointTotal <= newMaximum * 1000 + 999 &&
 				unitCount > oldMaximum * 4
 			) {
 				willBeKept = true
@@ -678,6 +693,7 @@ class WmrOuterContainer extends Component {
 		if (selectedArmyName === 'Ogre Kingdoms') {
 			if (
 				coreUnitCounts.bullOgreCount >= newMaximum * 2 &&
+				pointTotal <= newMaximum * 1000 + 999 &&
 				unitCount > oldMaximum * 2
 			) {
 				willBeKept = true
@@ -687,6 +703,7 @@ class WmrOuterContainer extends Component {
 			if (
 				coreUnitCounts.albionWarriorCount >= newMaximum * 2 &&
 				coreUnitCounts.slingerCount >= newMaximum &&
+				pointTotal <= newMaximum * 1000 + 999 &&
 				unitCount > oldMaximum * 3
 			) {
 				willBeKept = true
@@ -696,6 +713,7 @@ class WmrOuterContainer extends Component {
 			if (
 				coreUnitCounts.goblinGoblinCount >= newMaximum * 4 &&
 				coreUnitCounts.wolfRiderCount >= newMaximum * 2 &&
+				pointTotal <= newMaximum * 1000 + 999 &&
 				unitCount > oldMaximum * 6
 			) {
 				willBeKept = true
@@ -704,6 +722,7 @@ class WmrOuterContainer extends Component {
 		if (selectedArmyName === 'Witch Hunters') {
 			if (
 				coreUnitCounts.zealotCount >= newMaximum * 3 &&
+				pointTotal <= newMaximum * 1000 + 999 &&
 				unitCount > oldMaximum * 3
 			) {
 				willBeKept = true
@@ -712,6 +731,7 @@ class WmrOuterContainer extends Component {
 		if (selectedArmyName === 'Chaos Dwarfs') {
 			if (
 				coreUnitCounts.chaosDwarfCount >= newMaximum * 2 &&
+				pointTotal <= newMaximum * 1000 + 999 &&
 				unitCount > oldMaximum * 2
 			) {
 				willBeKept = true
@@ -721,6 +741,7 @@ class WmrOuterContainer extends Component {
 			if (
 				coreUnitCounts.gladeGuardCount >= newMaximum * 2 &&
 				coreUnitCounts.dryadCount >= newMaximum &&
+				pointTotal <= newMaximum * 1000 + 999 &&
 				unitCount > oldMaximum * 3
 			) {
 				willBeKept = true
@@ -730,6 +751,7 @@ class WmrOuterContainer extends Component {
 			if (
 				coreUnitCounts.beastherdCount >= newMaximum * 2 &&
 				coreUnitCounts.herdkinCount >= newMaximum * 2 &&
+				pointTotal <= newMaximum * 1000 + 999 &&
 				unitCount > oldMaximum * 4
 			) {
 				willBeKept = true
@@ -739,6 +761,7 @@ class WmrOuterContainer extends Component {
 			if (
 				coreUnitCounts.bondsmanCount >= newMaximum * 2 &&
 				coreUnitCounts.huscarlCount >= newMaximum &&
+				pointTotal <= newMaximum * 1000 + 999 &&
 				unitCount > oldMaximum * 3
 			) {
 				willBeKept = true
