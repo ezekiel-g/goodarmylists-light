@@ -1,0 +1,182 @@
+[
+    {
+        "id":"1",
+        "game_id":"2",
+        "name":"Battle Banner",
+        "display_name":"Battle Banner",
+        "magic_item_type":"Magic Standard",
+        "points":"50",
+        "only_for":"",
+        "description":"Every stand gets a +1 Attacks bonus during the unit's first combat engagement."
+    },
+    {
+        "id":"2",
+        "game_id":"2",
+        "name":"Banner of Shielding",
+        "display_name":"Banner of Shielding",
+        "magic_item_type":"Magic Standard",
+        "points":"50",
+        "only_for":"",
+        "description":"Every stand gets a +1 Armor bonus to a peak of 3+. This effect lasts until a stand is lost."
+    },
+    {
+        "id":"3",
+        "game_id":"2",
+        "name":"Banner of Fortitude",
+        "display_name":"Banner of Fortitude",
+        "magic_item_type":"Magic Standard",
+        "points":"50",
+        "only_for":"",
+        "description":"Every stand gets a +1 Hits bonus during the unit's first combat engagement. Discard odd hits at the end of the combat engagement as the effect wears off."
+    },
+    {
+        "id":"4",
+        "game_id":"2",
+        "name":"Banner of Steadfastness",
+        "display_name":"Banner of Steadfastness",
+        "magic_item_type":"Magic Standard",
+        "points":"30",
+        "only_for":"",
+        "description":"One shooting hit is ignored after saves have been made. This effect lasts until a stand is lost."
+    },
+    {
+        "id":"5",
+        "game_id":"2",
+        "name":"Banner of Fortune",
+        "display_name":"Banner of Fortune",
+        "magic_item_type":"Magic Standard",
+        "points":"20",
+        "only_for":"",
+        "description":"The unit can re-roll all of its Attacks once per battle."
+    },
+    {
+        "id":"6",
+        "game_id":"2",
+        "name":"Sword of Destruction",
+        "display_name":"Sword of Destruction",
+        "magic_item_type":"Magic Weapon",
+        "points":"10",
+        "only_for":"",
+        "description":"One enemy unit must re-roll successful saves while in Combat with this unit."
+    },
+    {
+        "id":"7",
+        "game_id":"2",
+        "name":"Sword of Fate",
+        "display_name":"Sword of Fate",
+        "magic_item_type":"Magic Weapon",
+        "points":"5",
+        "only_for":"",
+        "description":"One stand gets a +1 Attacks bonus during the unit's first combat engagement."
+    },
+    {
+        "id":"8",
+        "game_id":"2",
+        "name":"Sword of Cleaving",
+        "display_name":"Sword of Cleaving",
+        "magic_item_type":"Magic Weapon",
+        "points":"10",
+        "only_for":"",
+        "description":"One unsuccessul Attack can be re-rolled each combat round."
+    },
+    {
+        "id":"9",
+        "game_id":"2",
+        "name":"Sword of Might",
+        "display_name":"Sword of Might",
+        "magic_item_type":"Magic Weapon",
+        "points":"10",
+        "only_for":"",
+        "description":"One stand gets +1 Attacks each combat round."
+    },
+    {
+        "id":"10",
+        "game_id":"2",
+        "name":"Crown of Command",
+        "display_name":"Crown of Command",
+        "magic_item_type":"Device of Power",
+        "points":"100",
+        "only_for":"General",
+        "description":"The wearer's first order can be made on an unmodified Command value of 10. This effect lasts until an order made using this unmodified value is failed."
+    },
+    {
+        "id":"11",
+        "game_id":"2",
+        "name":"Helm of Dominion",
+        "display_name":"Helm of Dominion",
+        "magic_item_type":"Device of Power",
+        "points":"50",
+        "only_for":"General",
+        "description":"For one turn only the wearer gets a +1 Command bonus to a maximum of 10. The player must announce that they are using this ability at the start of their turn."
+    },
+    {
+        "id":"12",
+        "game_id":"2",
+        "name":"Orb of Majesty",
+        "display_name":"Orb of Majesty",
+        "magic_item_type":"Device of Power",
+        "points":"30",
+        "only_for":"General",
+        "description":"A single failed Command test can be re-rolled at a Command value of 8. The usual modifiers apply except that the re-roll counts as the first roll for the purposes of modifiers. If the re-roll is successful the wearer can continue issuing orders using their normal Command value."
+    },
+    {
+        "id":"13",
+        "game_id":"2",
+        "name":"Ring of Magic",
+        "display_name":"Ring of Magic",
+        "magic_item_type":"Device of Power",
+        "points":"30",
+        "only_for":"Wizard",
+        "description":"One spell can be cast automatically once per battle."
+    },
+    {
+        "id":"14",
+        "game_id":"2",
+        "name":"Staff of Spellbinding",
+        "display_name":"Staff of Spellbinding",
+        "magic_item_type":"Device of Power",
+        "points":"30",
+        "only_for":"Wizard or Dwarf Runesmith",
+        "description":"When an enemy Wizard casts a spell the wielder may roll a D6. On 4+ that enemy Wizard gets a -1 penalty to casting rolls for the rest of the battle. Once the Staff of Spellbinding has been successfully used once it can no longer be used."
+    },
+    {
+        "id":"15",
+        "game_id":"2",
+        "name":"Scepter of Sovereignty",
+        "display_name":"Scepter of Sovereignty",
+        "magic_item_type":"Device of Power",
+        "points":"30",
+        "only_for":"General",
+        "description":"One blunder result from a Command role can be treated as a successful order one time. If a character other than the wearer made the blunder then the player can roll to see the blunder's effects before deciding whether to use the Staff of Sovereignty or not."
+    },
+    {
+        "id":"16",
+        "game_id":"2",
+        "name":"Scroll of Dispelling",
+        "display_name":"Scroll of Dispelling",
+        "magic_item_type":"Device of Power",
+        "points":"20",
+        "only_for":"Wizard or Dwarf Runesmith",
+        "description":"One enemy spell automatically fails one time."
+    },
+    {
+        "id":"17",
+        "game_id":"2",
+        "name":"Wand of Power",
+        "display_name":"Wand of Power",
+        "magic_item_type":"Device of Power",
+        "points":"10",
+        "only_for":"Wizard",
+        "description":"The wearer gets +1 to cast a spell one time. A roll of 1 still fails. The player must announce that they are using this ability before rolling."
+    },
+    {
+        "id":"18",
+        "game_id":"2",
+        "name":"Rod of Repetition",
+        "display_name":"Rod of Repetition",
+        "magic_item_type":"Device of Power",
+        "points":"10",
+        "only_for":"Wizard",
+        "description":"Once per battle when the wearer rolls high enough to cast a spell (even if the spell is dispelled or anti-magicked by a Runesmith) they may immediately cast another spell. The second spell can be either the same spell or a different one than the first. If a spell itself allows for the possibility of multiple castings (such as Teleport) then that does not affect the Rod of Repetition (so three spells in a row could potentially be cast in this scenario)."
+    }
+]

@@ -1,0 +1,186 @@
+[
+    {
+        "id":"17",
+        "game_id":"2",
+        "name":"Albion",
+        "display_name":"Albion",
+        "adjective":"Albion",
+        "special_rules":"-"
+    },
+    {
+        "id":"13",
+        "game_id":"2",
+        "name":"Araby",
+        "display_name":"Araby",
+        "adjective":"Araby",
+        "special_rules":"-"
+    },
+    {
+        "id":"22",
+        "game_id":"2",
+        "name":"Beastmen",
+        "display_name":"Beastmen",
+        "adjective":"Beastmen",
+        "special_rules":"-"
+    },
+    {
+        "id":"9",
+        "game_id":"2",
+        "name":"Bretonnia",
+        "display_name":"Bretonnia",
+        "adjective":"Bretonnian",
+        "special_rules":"The Bretonnian army calculates when it must withdraw from the battle in a different way than other armies.\\n\\n\n\tInstead of counting all of its units at the start of the game count only the number of units of Knights, Grail Knights and Pegasus Knights.\\n\\n\n\tOnce the army has lost a half or more of its total number of units of Knights, Grail Knights and Pegasus Knights it must withdraw."
+    },
+    {
+        "id":"3",
+        "game_id":"2",
+        "name":"Chaos",
+        "display_name":"Chaos",
+        "adjective":"Chaos",
+        "special_rules":"-"
+    },
+    {
+        "id":"20",
+        "game_id":"2",
+        "name":"Chaos Dwarfs",
+        "display_name":"Chaos Dwarfs",
+        "adjective":"Chaos Dwarf",
+        "special_rules":"-"
+    },
+    {
+        "id":"11",
+        "game_id":"2",
+        "name":"Dark Elves",
+        "display_name":"Dark Elves",
+        "adjective":"Dark Elf",
+        "special_rules":"-"
+    },
+    {
+        "id":"12",
+        "game_id":"2",
+        "name":"Demons",
+        "display_name":"Demons",
+        "adjective":"Demon",
+        "special_rules":"Ignore Terror: Demon units are immune to Terror.\\n\\n\n\tDemonic Instability: At the start of the player's own Command phase, before making any initiative moves, all Demon units that have lost a stand must make a Demonic Instability test. Roll a D6, deducting 1 from the roll if two stands have been lost instead of one:\\n\n\tResult of 0-1: One stand is destroyed. If a character is with the unit and the last stand is removed the character is destroyed too.\\n\n\tResult of 2-3: The unit becomes Confused if not already Confused.\\n\n\tResult of 4-5: There is no effect except that if the unit is Confused it is no longer Confused.\\n\n\tResult of 6: The unit attacks the closest enemy within initiative range. If there is no enemy in initiative range the unit ignores command penalties for the lost stand until its next turn."
+    },
+    {
+        "id":"15",
+        "game_id":"2",
+        "name":"Dogs of War",
+        "display_name":"Dogs of War",
+        "adjective":"Dogs of War",
+        "special_rules":"-"
+    },
+    {
+        "id":"6",
+        "game_id":"2",
+        "name":"Dwarfs",
+        "display_name":"Dwarfs",
+        "adjective":"Dwarf",
+        "special_rules":"-"
+    },
+    {
+        "id":"1",
+        "game_id":"2",
+        "name":"The Empire",
+        "display_name":"The Empire",
+        "adjective":"Empire",
+        "special_rules":"-"
+    },
+    {
+        "id":"18",
+        "game_id":"2",
+        "name":"Goblins",
+        "display_name":"Goblins",
+        "adjective":"Goblin",
+        "special_rules":"-"
+    },
+    {
+        "id":"5",
+        "game_id":"2",
+        "name":"High Elves",
+        "display_name":"High Elves",
+        "adjective":"High Elf",
+        "special_rules":"-"
+    },
+    {
+        "id":"10",
+        "game_id":"2",
+        "name":"Kislev",
+        "display_name":"Kislev",
+        "adjective":"Kislev",
+        "special_rules":"-"
+    },
+    {
+        "id":"8",
+        "game_id":"2",
+        "name":"Lizardmen",
+        "display_name":"Lizardmen",
+        "adjective":"Lizardmen",
+        "special_rules":"Dense Terrain: Lizardmen units suffer no penalties from terrain."
+    },
+    {
+        "id":"23",
+        "game_id":"2",
+        "name":"Norse",
+        "display_name":"Norse",
+        "adjective":"Norse",
+        "special_rules":"-"
+    },
+    {
+        "id":"16",
+        "game_id":"2",
+        "name":"Ogre Kingdoms",
+        "display_name":"Ogre Kingdoms",
+        "adjective":"Ogre Kingdom",
+        "special_rules":"-"
+    },
+    {
+        "id":"4",
+        "game_id":"2",
+        "name":"Orcs",
+        "display_name":"Orcs",
+        "adjective":"Orc",
+        "special_rules":"-"
+    },
+    {
+        "id":"7",
+        "game_id":"2",
+        "name":"Skaven",
+        "display_name":"Skaven",
+        "adjective":"Skaven",
+        "special_rules":"Strength in Numbers: Brigades may be of any size and are not restricted to the normal four-unit maximum.\\n\\n\n\tVermintide: Skaven units (even artillery) can pursue enemy units regardless of their troop type.\\n\\n\n\tUnder the Lash: Skaven characters have a Command range of 20cm whether they are Heroes, Wizards or the General."
+    },
+    {
+        "id":"2",
+        "game_id":"2",
+        "name":"Tomb Kings",
+        "display_name":"Tomb Kings",
+        "adjective":"Tomb King",
+        "special_rules":"Undead:\\n\\n\n\tUndead units never act on initiative and require orders to move (except\tCarrion who can Home Back as noted in their profile).\\n\\n\n\tUndead units do not get the -1 Command penalty for enemy within 20cm.\\n\\n\n\tUndead units are immune to both Terror and Confusion."
+    },
+    {
+        "id":"14",
+        "game_id":"2",
+        "name":"Vampire Counts",
+        "display_name":"Vampire Counts",
+        "adjective":"Vampire Count",
+        "special_rules":"Undead:\n\tUndead units never act on initiative and require orders to move (except\tFell Bats who can Home Back as noted in their profile).\\n\\n\n\tUndead units do not get the -1 Command penalty for enemy within 20cm.\\n\\n\n\tUndead units are immune to both Terror and Confusion.\\n\\n\n\tGhouls do not count as Undead.\\n\\n\n\tUndead units cannot make supporting charges to support units of Ghouls that charge on initiative."
+    },
+    {
+        "id":"19",
+        "game_id":"2",
+        "name":"Witch Hunters",
+        "display_name":"Witch Hunters",
+        "adjective":"Witch Hunter",
+        "special_rules":"Some units' abilities from the Witch Hunter army will affect \"Chaos and/or Undead.\"\\n\\n\n\t\"Chaos\" means the Chaos army, the Demon army and the Beastmen army.\\n\\n\n\t\"Undead\" means the Tomb Kings army and the Vampire Counts army (including units of Ghouls)."
+    },
+    {
+        "id":"21",
+        "game_id":"2",
+        "name":"Wood Elves",
+        "display_name":"Wood Elves",
+        "adjective":"Wood Elf",
+        "special_rules":"Before deploying armies the Wood Elf player may decide to place additional forest(s) instead of fielding one of their Wardancer units (assuming there is one in the list).\\n\\n\n\tThe additional forest...\\n\n\t...must be placed so that at least part of it lies within the Wood Elf deployment zone.\\n\n\t...cannot be placed closer than 12cm to any other terrain feature except for a road or a hill.\\n\n\t...cannot have any dimension larger than 16cm.\\n\n\t...is limited to one per full 1000 points.\\n\n\t...cannot be placed if it would bring the total number of forests on the Wood Elf player's half of the table over four.\\n\\n\n\tWoodland Folk: Wood Elf infantry does not suffer the usual -1 Command penalty when within forests."
+    }
+]
